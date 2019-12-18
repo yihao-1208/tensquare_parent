@@ -62,5 +62,14 @@ public class LabelController {
         return new Result(true,StatusCode.OK,"删除成功");
     }
 
+    /**
+     * 测试方法
+     * @return
+     */
+    @GetMapping("/hello")
+    public String hello(){
+        return "hello";
+    }
+
 
 }
