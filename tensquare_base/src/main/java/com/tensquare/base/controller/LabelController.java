@@ -32,7 +32,6 @@ public class LabelController {
      */
     @GetMapping("/{labelId}")
     public Result findAllById(@PathVariable("labelId") String labelId){
-
         return new Result(true, StatusCode.OK,"成功",labelService.findById(labelId));
     }
 
