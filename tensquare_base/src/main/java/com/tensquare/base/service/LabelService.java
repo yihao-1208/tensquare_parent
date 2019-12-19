@@ -118,6 +118,7 @@ public class LabelService {
                 if(label.getLabelname()!=null && !"".equals(label.getLabelname())){
                     Predicate labelname = cb.like(root.get("labelname").as(String.class), "%" + label.getLabelname() + "%");
                     list.add(labelname);
+
                 }
                 if(label.getState()!=null && !"".equals(label.getState())){
                     Predicate labelname = cb.equal(root.get("state").as(String.class), label.getState());
