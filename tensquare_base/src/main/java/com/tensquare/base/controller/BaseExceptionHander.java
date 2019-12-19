@@ -12,7 +12,6 @@ public class BaseExceptionHander {
     public Result error(Exception e){
         e.printStackTrace();
         return new Result(false, StatusCode.ERROR,e.getMessage());//传入状态码
-
     }
 
 }
