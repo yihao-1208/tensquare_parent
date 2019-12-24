@@ -80,6 +80,7 @@ public class GatheringService {
 	 * @return
 	 */
 	@Cacheable(value = "gathering",key = "#id")
+
 	public Gathering findById(String id) {
 		return gatheringDao.findById(id).get();
 	}
@@ -98,6 +99,7 @@ public class GatheringService {
 	 * @param gathering
 	 */
 	@CacheEvict(value = "gathering",key = "#gathering.id")
+
 	public void update(Gathering gathering) {
 		gatheringDao.save(gathering);
 	}
@@ -107,6 +109,7 @@ public class GatheringService {
 	 * @param id
 	 */
 	@CacheEvict(value = "gathering",key = "#id")
+
 	public void deleteById(String id) {
 		gatheringDao.deleteById(id);
 	}

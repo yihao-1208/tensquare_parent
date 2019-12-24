@@ -27,6 +27,7 @@ import entity.StatusCode;
 @RequestMapping("/channel")
 public class ChannelController {
 
+
 	@Autowired
 	private ChannelService channelService;
 	

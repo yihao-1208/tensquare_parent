@@ -93,6 +93,7 @@ public class ArticleService {
 	 */
 	public Article findById(String id) {
 		//查询redis
+
 		String jsonArticle = stringRedisTemplate.opsForValue().get("article:" + id);
 		Article article = JSONObject.parseObject(jsonArticle, Article.class);
 		//如果没有则查询数据库

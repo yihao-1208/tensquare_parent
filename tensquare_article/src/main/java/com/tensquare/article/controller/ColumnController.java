@@ -27,6 +27,7 @@ import entity.StatusCode;
 @RequestMapping("/column")
 public class ColumnController {
 
+
 	@Autowired
 	private ColumnService columnService;
 	

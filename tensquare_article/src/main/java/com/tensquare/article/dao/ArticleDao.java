@@ -22,6 +22,7 @@ public interface ArticleDao extends JpaRepository<Article,String>,JpaSpecificati
     @Query(value = "update tb_article set thumbup=thumbup+1 where id=?",nativeQuery=true)
     public void updateThumbup(String id);
 
+
     /***
      * 状态审核
      * @param id

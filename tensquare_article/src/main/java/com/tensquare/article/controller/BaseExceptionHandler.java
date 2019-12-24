@@ -12,6 +12,7 @@ import java.io.IOException;
  */
 @ControllerAdvice
 public class BaseExceptionHandler {
+
 	
     @ExceptionHandler(value = Exception.class)
     @ResponseBody

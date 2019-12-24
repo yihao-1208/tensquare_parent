@@ -8,6 +8,7 @@ import java.io.Serializable;
  * 实体类
  * @author Administrator
  *
+ *
  */
 @Entity
 @Table(name="tb_channel")

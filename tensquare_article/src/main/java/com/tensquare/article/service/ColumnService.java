@@ -29,6 +29,7 @@ import com.tensquare.article.pojo.Column;
  * 
  * @author Administrator
  *
+ *
  */
 @Service
 public class ColumnService {

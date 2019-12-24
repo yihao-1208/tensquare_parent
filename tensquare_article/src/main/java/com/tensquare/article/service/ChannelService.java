@@ -29,6 +29,7 @@ import com.tensquare.article.pojo.Channel;
  * 
  * @author Administrator
  *
+ *
  */
 @Service
 public class ChannelService {
