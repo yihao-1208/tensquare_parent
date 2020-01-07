@@ -1,15 +1,12 @@
 package com.tensquare.qa.controller;
-import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.tensquare.qa.client.LabelClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.tensquare.qa.pojo.Problem;
 import com.tensquare.qa.service.ProblemService;
@@ -30,6 +27,18 @@ public class ProblemController {
 
 	@Autowired
 	private ProblemService problemService;
+
+	@Autowired
+	private HttpServletRequest request;
+
+	@Autowired
+	private  LabelClient labelClient;
+
+	@GetMapping("/label/{labelId}")
+	public Result getLabelById(@PathVariable("labelId") String labelId){
+		Result allById = labelClient.findAllById(labelId);
+		return allById;
+	}
 	
 	
 	/**
@@ -81,6 +90,10 @@ public class ProblemController {
 	 */
 	@RequestMapping(method=RequestMethod.POST)
 	public Result add(@RequestBody Problem problem  ){
+		String token = (String) request.getAttribute("claims_user");
+		if(token == null || "".equals(token)){
+			return  new Result(false,StatusCode.ACCESSERROR,"权限不足");
+		}
 		problemService.add(problem);
 		return new Result(true,StatusCode.OK,"增加成功");
 	}

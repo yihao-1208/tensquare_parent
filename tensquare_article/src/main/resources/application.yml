@@ -13,4 +13,9 @@ spring:
     show-sql: true
   redis:
     host: 39.105.29.53
-
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6867/eureka/
+  instance:
+    prefer-ip-address: true

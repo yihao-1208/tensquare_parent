@@ -1,7 +1,5 @@
 package com.tensquare.base.controller;
 
-
-
 import com.tensquare.base.pojo.Label;
 import com.tensquare.base.service.LabelService;
 import entity.PageResult;
@@ -9,8 +7,8 @@ import entity.Result;
 import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
+import javax.servlet.http.HttpServletRequest;
 
 import java.util.List;
 import java.util.Map;
@@ -22,12 +20,18 @@ public class LabelController {
 
     @Autowired
     private LabelService labelService;
+
+    @Autowired
+    private HttpServletRequest request;
     /**
      * 查询全部
      * @return
      */
     @GetMapping()
     public Result findAll(){
+        //获取头信息
+        String authorization = request.getHeader("Authorization");
+        System.out.println(authorization);
         return new Result(true, StatusCode.OK,"成功",labelService.findAll());
     }
 
@@ -38,6 +42,7 @@ public class LabelController {
      */
     @GetMapping("/{labelId}")
     public Result findAllById(@PathVariable("labelId") String labelId){
+        System.out.println("9001");
         return new Result(true, StatusCode.OK,"成功",labelService.findById(labelId));
     }
 

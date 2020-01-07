@@ -1,5 +1,5 @@
 server: 
-  port: 9003
+  port: 9010
 spring: 
   application:  
     name: tensquare-qa #指定服务名
@@ -11,3 +11,16 @@ spring:
   jpa: 
     database: MySQL
     show-sql: true
+jwt:
+  config:
+    key: itcat
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6867/eureka/
+  instance:
+    prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: true
+
